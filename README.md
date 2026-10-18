@@ -2,7 +2,15 @@
   <img src="assets/banner.svg" alt="Awesome Deep Learning Deployment Banner" width="100%" />
 </p>
 
-# Awesome Deep Learning Deployment & Model Serving [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ishandutta2007/Awesome-Deep-Learning-Deployment/pulls) [![GitHub Stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Deep-Learning-Deployment?style=social)](https://github.com/ishandutta2007/Awesome-Deep-Learning-Deployment/stargazers)
+# Awesome Deep Learning Deployment & Model Serving
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Deep-Learning-Deployment/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Deep-Learning-Deployment/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Deep-Learning-Deployment?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
 
 > A comprehensive, production-tested directory of the best tools, frameworks, and hosted platforms for **Deep Learning Deployment**, **LLM Inference Optimization**, **Model Graph Compilation**, and **Production Model Serving** across Cloud, Kubernetes, and Edge hardware.
 
