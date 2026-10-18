@@ -35,6 +35,8 @@ This repository tracks the modern **Deep Learning Deployment Ecosystem**. It is 
 - [🏗️ Production Architecture Integration Patterns](#️-production-architecture-integration-patterns)
 - [💡 Frequently Asked Questions (FAQ) & Deployment Insights](#-frequently-asked-questions-faq--deployment-insights)
 - [🤝 How to Contribute](#-how-to-contribute)
+- [💖 Support](#-support)
+- [⭐ Star History](#--star-history)
 - [⚖️ Disclaimer & Evaluation Framework](#️-disclaimer--evaluation-framework)
 
 ---
@@ -182,6 +184,28 @@ In real-world enterprise architectures, deployment is rarely solved by a single 
 3. 🔗 Ensure all links point to authoritative official documentation or source repositories.
 4. 🏷️ For SaaS tools, specify concrete starting prices and exact free tier limits. For open-source tools, include the standard social star badge.
 5. 🚀 Submit a Pull Request detailing the justification for additions or updates.
+
+---
+
+## 💖 Support
+
+A massive **thank you** to everyone in the machine learning, systems engineering, and open-source community who stars, forks, and contributes to this deployment guide! 🙌
+
+If you find this repository valuable for your research, team, or production architectures:
+- ⭐ **Star this repository** to improve discoverability for fellow ML engineers.
+- 🍴 **Fork and contribute** benchmark updates, hardware targets, or runtime releases.
+- 📢 **Share** with your engineering peers, platform teams, and AI communities.
+- ☕ **Buy me a coffee / Sponsor**: Support ongoing maintenance and new hardware benchmarks through the **[GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007)**.
+
+<p align="center">
+  <a href="https://github.com/sponsors/ishandutta2007"><img src="https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?style=for-the-badge&logo=github-sponsors" alt="Sponsor on GitHub" /></a>
+</p>
+
+---
+
+##  Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Deep-Learning-Deployment&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Deep-Learning-Deployment&type=date&legend=top-left)
 
 ---
 
