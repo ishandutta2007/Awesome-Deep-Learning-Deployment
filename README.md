@@ -1,46 +1,52 @@
-# Awesome-Deep-Learning-Deployment
+# Awesome Deep Learning Deployment & Model Serving [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ishandutta2007/Awesome-Deep-Learning-Deployment/pulls) [![GitHub Stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Deep-Learning-Deployment?style=social)](https://github.com/ishandutta2007/Awesome-Deep-Learning-Deployment/stargazers)
 
-## Top Deep Learning Deployment Ecosystem
+> A comprehensive, production-tested directory of the best tools, frameworks, and hosted platforms for **Deep Learning Deployment**, **LLM Inference Optimization**, **Model Graph Compilation**, and **Production Model Serving** across Cloud, Kubernetes, and Edge hardware.
 
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-
-*Focused on Model Compilation, Runtime Optimization & Production Serving*  
+[![Model Serving](https://img.shields.io/badge/Category-Model_Serving-blue.svg)](#open-source-github-projects)
+[![Inference Engines](https://img.shields.io/badge/Category-Inference_Engines-green.svg)](#open-source-github-projects)
+[![Model Compilers](https://img.shields.io/badge/Category-Model_Compilers-orange.svg)](#open-source-github-projects)
+[![Edge & On-Device](https://img.shields.io/badge/Category-Edge_%26_On--Device-purple.svg)](#open-source-github-projects)
+[![Cloud Inference SaaS](https://img.shields.io/badge/Category-Cloud_Inference_SaaS-red.svg)](#saashosted-platforms)
 
 **Last updated: October 2026**
 
+This repository tracks the modern **Deep Learning Deployment Ecosystem**. It is designed for Machine Learning Engineers, MLOps Practitioners, and Platform Architects who need to deploy trained deep learning and Large Language Models (LLMs) into production with minimal latency, maximum token throughput, and cost-efficient hardware utilization.
 
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Deep Learning Deployment**. These tools enable developers to transform trained models into optimized, production-ready artifacts—from graph compilers that fuse operators and quantize weights to serving frameworks that handle batching, routing, and multi-model management.
-
-
-
-**Examples** include Apache TVM, ONNX Runtime, OpenVINO, NVIDIA TensorRT, Apple Core ML, TensorFlow Lite, TorchScript, Qualcomm SNPE, Vitis AI, and OctoAI (the category leaders).
-
-
-
-**Open-source emphasis**: This section is heavily expanded with every major active project for self-hosting, cross-platform compilation, and open inference infrastructure—ideal for ML engineers, platform teams, and organizations seeking transparent, vendor-independent model deployment.
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
+---
 
 ## Table of Contents
 
 - [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
+- [Deployment Architecture & Decision Matrix](#deployment-architecture--decision-matrix)
 - [SaaS/Hosted Platforms](#saas-hosted-platforms)
 - [Open-Source GitHub Projects](#open-source-github-projects)
+- [Production Architecture Integration Patterns](#production-architecture-integration-patterns)
+- [Frequently Asked Questions (FAQ) & Deployment Insights](#frequently-asked-questions-faq--deployment-insights)
 - [How to Contribute](#how-to-contribute)
-- [Disclaimer](#disclaimer)
+- [Disclaimer & Evaluation Framework](#disclaimer--evaluation-framework)
+
+---
 
 ## Sector Overview & Market Dynamics
 
 The global deep learning inference and AI model deployment market is estimated at **$95B–$120B in 2024–2026** and projected to reach **$250B–$490B+ by the early 2030s** (~17%–19% CAGR), with production inference representing **80%–90% of total lifetime enterprise AI computing expenditure**. 
 
 The sector exhibits a bifurcated competitive structure: the **hardware accelerator and silicon tier is highly concentrated and monopolistic** (dominated by NVIDIA with 55%–75% market share alongside hyperscaler custom ASICs), whereas the **software compilation, orchestration, and inference runtime tier is moderately-to-highly fragmented** across hardware-agnostic compilers, open-source serving engines, and specialized serverless platforms competing on latency, throughput, and cost-per-token optimization.
+
+## Deployment Architecture & Decision Matrix
+
+| Workload & Target | Recommended Engine / Framework | Key Architectural Advantage | Primary Trade-Off |
+| :--- | :--- | :--- | :--- |
+| **High-Throughput Enterprise LLM Serving** | **vLLM** | PagedAttention, continuous batching, chunked prefill | High GPU VRAM allocation required |
+| **Agentic Workflows & Multi-Turn Chat** | **SGLang** | RadixAttention (automatic KV cache prefix reuse) | Rapidly evolving API surface |
+| **CPU / Edge / Local Laptop LLM** | **llama.cpp** / **Ollama** | GGUF quantization (2-bit to 8-bit), zero runtime dependencies | Slower throughput than distributed GPU serving |
+| **Multi-Framework Enterprise Model Server** | **Triton Inference Server** | Heterogeneous backends (TensorRT, ONNX, vLLM, Python), dynamic batching | Operational complexity for setup & tuning |
+| **NVIDIA GPU Peak Performance** | **NVIDIA TensorRT** | Layer fusion, kernel auto-tuning for Ampere/Hopper/Blackwell | Hardware vendor lock-in to NVIDIA GPUs |
+| **Hardware-Agnostic Model Compilation** | **Apache TVM** | TensorIR + Relax dual IR, compiles to any CPU/GPU/NPU/DSP | Steeper compiler learning curve |
+| **Cross-Platform Model Portability** | **ONNX Runtime** | Universal model format, automatic execution provider selection | May trail single-hardware vendor-optimized peak speeds |
+| **Intel CPU / Arc GPU / NPU Acceleration** | **Intel OpenVINO** | AVX-512, AMX, Intel Arc & Core Ultra NPU optimization | Tailored exclusively for Intel architecture |
+| **Mobile & Embedded PyTorch Edge** | **ExecuTorch** | Tiny binary footprint (<50 KB), direct PyTorch 2.x export | Newer ecosystem compared to older mobile toolkits |
+| **Kubernetes Declarative Serving** | **KServe** / **Seldon Core** | Scale-to-zero, Canary rollouts, declarative CRDs on Istio/Knative | Requires operational Kubernetes cluster |
 
 ## SaaS/Hosted Platforms
 
@@ -123,56 +129,63 @@ The leading open-source deep learning compilers, inference runtimes, and model s
 - **[AIKit (Kaito)](https://github.com/kaito-project/aikit)** [![GitHub stars](https://img.shields.io/github/stars/kaito-project/aikit?style=social&color=white)](https://github.com/kaito-project/aikit/stargazers)  
   **Containerized LLM Deployment and Fine-Tuning Kit** (Apache-2.0) — Packages open-source foundation models into standard OCI artifacts with signed supply-chain security (SBOMs), OpenAI-compatible API endpoints, and automated Kubernetes scheduling with AMD ROCm and NVIDIA CUDA support. **Best for**: Secure, container-native LLM deployment on Kubernetes clusters with strict enterprise supply-chain requirements.
 
-**Architecture Integration Pattern**: In production stacks, developers frequently combine **Apache TVM** or **TensorRT** for hardware graph compilation, **vLLM** or **SGLang** for generative model inference, and **Triton Inference Server** or **KServe** for multi-model Kubernetes orchestration and routing.
+## Production Architecture Integration Patterns
 
+In real-world enterprise architectures, deployment is rarely solved by a single tool. High-performing AI platforms integrate tools across three distinct operational layers:
 
+```
+[ Computational Graph Compiler ]  --->  [ Specialized High-Throughput Runtime ]  --->  [ Orchestrated Production Server ]
+  • Apache TVM                           • vLLM (PagedAttention / Generative)           • Triton Inference Server
+  • NVIDIA TensorRT (Layer Fusion)       • SGLang (RadixAttention / Multi-turn)        • KServe (Kubernetes Native)
+  • Intel OpenVINO (AMX / AVX-512)       • llama.cpp (Quantized GGUF / CPU-Edge)        • BentoML (Composite Services)
+```
 
-## How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- Deep learning deployment tools must be evaluated for **hardware target coverage**, **model format support**, **quantization capabilities**, and **licensing** (fully open vs. open components around proprietary cores).
-
-- **The "compiler vs. runtime vs. server" distinction matters.** **Compilers** (TVM, TensorRT, OpenVINO) transform models into optimized executables for specific hardware. **Runtimes** (ONNX Runtime, vLLM, SGLang, llama.cpp) execute models. **Servers** (Triton, Seldon Core) provide HTTP/gRPC endpoints for production serving. **Most production stacks combine all three**—compile with TVM or TensorRT, serve with Triton or vLLM.
-
-- **Engine selection is a function of hardware, scale, and ecosystem—not a leaderboard read.** **CPU-first → llama.cpp**. **AMD GPU → vLLM** (TRT-LLM is NVIDIA-locked). **NVIDIA Hopper → vLLM, SGLang, or TRT-LLM**. **Apple Silicon → llama.cpp (Metal)**. **1 user/dev → Ollama**. **10-100 users → vLLM single-GPU**. **100-10k users → vLLM production-stack or SGLang**. **10k+ users → vLLM production-stack + disaggregated + LMCache** .
-
-- **TGI entered maintenance mode December 11, 2025.** Only bug fixes—**~10% slower raw throughput than vLLM** but historically top observability and HF-ecosystem integration . **That maintenance status makes it a risky long-term bet**—SGLang or vLLM are safer defaults for new projects .
-
-- **Apache TVM is the most comprehensive fully open compiler option.** **13,500+ stars, 1,020+ contributors, Apache-2.0** . **TensorIR + Relax cross-level design** jointly optimizes graphs, tensor programs, and libraries . **The trade-off is complexity**—TVM has a steeper learning curve than vendor-specific toolchains. **Choose TVM when portability across diverse hardware matters more than turnkey simplicity.**
-
-- **ONNX Runtime is the portability standard.** **Auto EP Selection** in v1.22 simplifies choosing the right execution provider per model . **The trade-off**: broad hardware coverage, but **not always the absolute peak performance** that a vendor-specific compiler tuned for one chip can deliver.
-
-- **Vendor-specific compilers deliver peak performance at the cost of lock-in.** **TensorRT** picks the fastest GPU kernel per layer but only runs on NVIDIA GPUs . **OpenVINO** optimizes for Intel hardware but requires **AVX2 minimum** in 2026 and has **discontinued the Model Optimizer** . **Core ML** targets Apple silicon exclusively. **Choose vendor compilers when you've committed to that hardware**—use TVM or ONNX Runtime when you need to hedge.
-
-- Self-hosted open-source solutions require proper GPU/hardware provisioning, model validation, and ongoing maintenance. **Compiler optimizations can introduce numerical differences**—validate outputs against the reference implementation before production deployment.
-
-
+1. **Compilation Layer**: Compilers analyze computational graphs, fuse consecutive operators (e.g., Conv+ReLU or QKV projections), quantize weights (FP8, INT8, INT4), and generate hardware-specific microcode.
+2. **Execution & Runtime Layer**: High-throughput runtimes schedule requests, manage active Key-Value (KV) cache memory, and implement dynamic iteration-level batching.
+3. **Serving & Orchestration Layer**: Cloud-native servers provide authenticated gRPC/REST APIs, route traffic, autoscale worker pods based on queue length, and log metrics to Prometheus and OpenTelemetry.
 
 ---
 
+## Frequently Asked Questions (FAQ) & Deployment Insights
 
+### What is the difference between a Model Compiler, an Inference Runtime, and a Model Server?
+* **Model Compilers** (e.g., Apache TVM, TensorRT, OpenVINO) transform abstract computation graphs into optimized binary instructions tuned for specific silicon architectures.
+* **Inference Runtimes** (e.g., vLLM, SGLang, ONNX Runtime, llama.cpp) execute model weights in active memory, managing KV caches, memory allocation, and batching.
+* **Model Servers** (e.g., Triton Inference Server, KServe, TorchServe) provide network interfaces (HTTP/gRPC), traffic shaping, multi-model concurrency, and telemetry for production microservices.
 
-**Made for ML engineers, platform teams, and organizations building transparent inference solutions.**  
+### Which LLM serving engine should I use: vLLM or SGLang?
+* Choose **[vLLM](https://github.com/vllm-project/vllm)** for generalized high-concurrency production serving, broad enterprise hardware compatibility (NVIDIA CUDA, AMD ROCm), and established ecosystem integrations.
+* Choose **[SGLang](https://github.com/sgl-project/sglang)** if your workload features multi-turn agentic conversations, chain-of-thought loops, or repeated system prompts, where **RadixAttention** can reuse existing KV cache prefixes to cut latency by up to 3x–5x.
 
-Let's make Deep Learning Deployment more open, data-driven, and hardware-aware.
+### When should I use ONNX Runtime vs. hardware-specific compilers like TensorRT?
+* Choose **[ONNX Runtime](https://github.com/microsoft/onnxruntime)** when your application must run across diverse hardware (Intel CPUs, ARM processors, NVIDIA GPUs, AMD chips, Apple Silicon) using a single portable artifact.
+* Choose **[TensorRT](https://github.com/NVIDIA/TensorRT)** when you have committed strictly to NVIDIA GPUs and require maximum throughput, kernel auto-tuning, and sub-millisecond latencies.
+
+---
+
+## How to Contribute
+
+1. Fork this repository on GitHub.
+2. Add or update entries in `README.md` adhering to the existing tabular and ranked star format.
+3. Ensure all links point to authoritative official documentation or source repositories.
+4. For SaaS tools, specify concrete starting prices and exact free tier limits. For open-source tools, include the standard social star badge.
+5. Submit a Pull Request detailing the justification for additions or updates.
+
+---
+
+## Disclaimer & Evaluation Framework
+
+- This repository is a **community-curated directory** intended for technical evaluation and architectural benchmarking.
+- **Engine selection is a function of hardware, scale, and ecosystem—not a leaderboard read:**
+  - **CPU-First & Edge Devices**: → `llama.cpp` / `Ollama` / `ExecuTorch`
+  - **AMD GPUs (ROCm)**: → `vLLM` (TensorRT-LLM remains locked to NVIDIA silicon)
+  - **NVIDIA Hopper / Blackwell GPUs**: → `vLLM`, `SGLang`, or `NVIDIA TensorRT-LLM`
+  - **Apple Silicon (macOS / iOS)**: → `llama.cpp` (Metal) or `MLC-LLM`
+  - **Multi-Model Heterogeneous Clusters**: → `Triton Inference Server` on Kubernetes via `KServe`
+- **Compiler optimizations can introduce numerical precision variations**: Always validate model output accuracy and perplexity against the unquantized reference implementation prior to rolling out to production traffic.
+
+---
+
+**Keywords / Topics**: Deep Learning Deployment, LLM Inference Optimization, Model Serving, Machine Learning Compilers, Production Inference, vLLM, TensorRT, Triton Inference Server, ONNX Runtime, Apache TVM, Ollama, llama.cpp, SGLang, KServe, AI Infrastructure, MLOps.
+
+*Made for ML engineers, platform teams, and AI architects building high-performance, cost-efficient inference systems.*
