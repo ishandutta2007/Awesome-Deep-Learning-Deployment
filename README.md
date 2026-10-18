@@ -42,35 +42,21 @@ Contributions welcome! Open a PR to add/update entries. Keep descriptions factua
 
 ## SaaS/Hosted Platforms
 
-
-
-- **OctoAI**
-
-  Managed inference platform for optimized model serving. **Note**: Proprietary and cloud-hosted—no self-hosting option. Offers optimized inference for open-weight models with automatic scaling and pay-per-token pricing. **Best for**: teams wanting managed inference without infrastructure management.
-
-
-
-- **NVIDIA TensorRT (Commercial Support)**
-
-  **SDK for high-performance deep learning inference on NVIDIA GPUs**. The repository contains the **open-source components**—the core builder and runtime are distributed as pre-built binaries with commercial support available. **The reference for NVIDIA GPU inference**—takes an ONNX model, compiles it into a hardware-specific engine, and picks the fastest available GPU kernel for each layer.
-
-
-
-- **Apple Core ML**
-
-  **Apple's framework for on-device inference on iPhone, iPad, and Mac**. **Note**: The compiler and runtime are **closed-source**—you convert models using `coremltools` (open-source Python package) and deploy through Xcode. **The on-device choice** for Apple platforms—optimizes for the Neural Engine (ANE) and GPU.
-
-
-
-- **Qualcomm SNPE (Snapdragon Neural Processing Engine)**
-
-  **Qualcomm's SDK for inference on Snapdragon mobile and edge platforms**. **Note**: Proprietary—requires Qualcomm developer account. **The Snapdragon choice** for Android and IoT deployments.
-
-
-
-- **AWS Neuron**
-
-  **SDK for inference on AWS Inferentia and Trainium chips**. **Note**: Compiler and runtime are **closed-source**—you use the Neuron SDK to compile models for AWS silicon. **The AWS-specific choice** for cost-optimized inference on Inferentia instances.
+| Platform / Product | Company Size / Valuation / Revenue | Primary Focus / Deployment Scope | Starting Pricing | Free Tier / Trial Limits |
+| :--- | :--- | :--- | :--- | :--- |
+| **[NVIDIA NIM & AI Enterprise](https://www.nvidia.com/en-us/ai-data-science/products/nim/)** | ~$3.4 Trillion Market Cap ($120B+ ARR) | Optimized inference microservices and containerized deployment across NVIDIA GPUs | $1.00 per GPU-hour or $4,500 per GPU/year | 90-day free trial with 5,500 credits for NVIDIA AI Foundation Models; free local testing via NGC for research/individual use |
+| **[Microsoft Azure AI Foundry & Azure ML](https://azure.microsoft.com/en-us/products/ai-foundry)** | ~$3.1 Trillion Market Cap ($140B+ Cloud ARR) | Managed enterprise model serving, ONNX Runtime integration, and Triton on AKS | $0.096/hour (`Standard_D2s_v5` CPU) or $0.38/hour (`Standard_NC4as_T4_v3` GPU) | 30-day free trial with $200 Azure credits, plus 12 months access to popular free services |
+| **[Google Cloud Vertex AI](https://cloud.google.com/vertex-ai)** | ~$2.1 Trillion Market Cap ($40B+ Cloud ARR) | Managed serverless and dedicated endpoints for Gemma, PaLM, Gemini, and custom deep learning models | $0.0005 per 1k characters or $0.74/hour (`n1-standard-4` + NVIDIA T4 GPU) | 90-day free trial with $300 universal Google Cloud credits for new accounts |
+| **[AWS SageMaker & Bedrock](https://aws.amazon.com/sagemaker/)** | ~$2.1 Trillion Market Cap ($105B+ AWS ARR) | Real-time, asynchronous, and serverless deep learning endpoints with AWS Neuron & GPU support | $0.05/hour (`ml.t3.medium` CPU) or $0.526/hour (`ml.g4dn.xlarge` GPU) | 2 months free trial with 250 hours/month of `ml.t3.medium` instances under AWS Free Tier |
+| **[Fireworks AI](https://fireworks.ai/)** | $17.5 Billion Valuation ($1.5B Series D, $1B+ ARR) | Low-latency generative model serving, compound AI systems, and custom LoRA adapter hosting | $0.20 per 1M tokens (Llama 3 8B) or $0.00055/GPU-sec for on-demand dedicated deployments | $1 free starter credit upon account registration (approx. 5M tokens on 8B models); no expiry date |
+| **[Modal](https://modal.com/)** | $15.75 Billion Valuation ($750M Series D, $1B+ ARR) | Serverless Python-defined container infrastructure with sub-second cold starts and scale-to-zero | $0.000163/core-sec CPU, $0.000588/sec for NVIDIA T4 (~$2.12/hr), $0.001097/sec for A10G | $30/month in free compute credits renewing forever; up to 10 concurrent GPUs and 3 workspace seats |
+| **[Baseten](https://www.baseten.co/)** | $13.0 Billion Valuation ($1.5B Series F) | Production model serving backed by Truss packaging, Triton engine, and zero-idle cost scaling | $0.20 per 1M tokens or $0.033/min ($1.98/hour) for dedicated NVIDIA A10G instances | $30 free compute credits upon account creation for testing serverless deployments |
+| **[Together AI](https://www.together.ai/)** | $8.3 Billion Valuation ($800M Series C) | Serverless open-source model inference endpoints and dedicated multi-GPU serving clusters | $0.18 per 1M tokens (Llama 3.1 8B), $0.88 per 1M tokens (70B), or $1.25/GPU-hour dedicated | $5 free credit upon account registration valid for 3 months to test serverless APIs |
+| **[Hugging Face Inference Endpoints](https://huggingface.co/inference-endpoints)** | $4.5 Billion Valuation ($235M Series D) | Fully managed containerized model deployments directly from the Hugging Face Model Hub | $0.03/hour (CPU small) or $0.50/hour (NVIDIA T4 GPU 16GB) | Serverless Inference API is free forever up to 1,000 requests/day (rate limited to 30 requests/min) |
+| **[Groq Cloud](https://groq.com/)** | $2.8 Billion Valuation (Series D) | Ultra-high throughput, deterministic low-latency inference powered by custom LPUs | $0.05 per 1M input tokens and $0.08 per 1M output tokens (Llama 3.1 8B) | Free forever plan with 30 requests/minute, 14,400 requests/day, and 30,000 tokens/minute (no credit card required) |
+| **[Anyscale Endpoints](https://www.anyscale.com/)** | $1.0 Billion Valuation ($100M Series C) | Distributed Ray-based production model serving and high-performance inference clusters | $0.15 per 1M tokens (Llama 3 8B) or $0.40/GPU-hour on managed Anyscale Cloud clusters | 30-day free trial with $50 free credits upon sign-up |
+| **[Replicate](https://replicate.com/)** | $350 Million Valuation (Acquired / Integrated into Cloudflare) | Pay-per-second API serving for open-source AI models packaged with Cog containers | $0.000100/sec ($0.36/hour) for CPU, $0.000550/sec ($1.98/hour) for NVIDIA A40 GPU | $5 free credit on initial signup (equivalent to ~45 minutes of T4 GPU compute) |
+| **[OctoAI](https://octo.ai/)** | $165 Million Valuation (Acquired by NVIDIA in 2024) | TVM-backed automated compilation, runtime acceleration, and hosted endpoint serving | $0.10 per 1M tokens or $0.05/hour for containerized endpoint runtime | 30-day free trial with $10 free credits upon registration |
 
 
 
