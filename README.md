@@ -64,81 +64,66 @@ The sector exhibits a bifurcated competitive structure: the **hardware accelerat
 
 ## Open-Source GitHub Projects
 
+The leading open-source deep learning compilers, inference runtimes, and model serving platforms—ranked in descending order by GitHub star popularity:
 
+- **[Ollama](https://github.com/ollama/ollama)** [![GitHub stars](https://img.shields.io/github/stars/ollama/ollama?style=social&color=white)](https://github.com/ollama/ollama/stargazers)  
+  **Local and Edge LLM Runner & Serving Engine** (MIT) — The premier developer tool for running open-weight language models locally. Wraps llama.cpp in an intuitive CLI/daemon UX with Docker-style model management (`ollama pull`, `ollama run`), OpenAI-compatible REST API, and native hardware acceleration across macOS (Metal), Windows, and Linux (NVIDIA CUDA & AMD ROCm). **Best for**: Rapid developer prototyping, local inference on laptops/workstations, and private desktop deployment.
 
-- **Apache TVM**
+- **[llama.cpp](https://github.com/ggml-org/llama.cpp)** [![GitHub stars](https://img.shields.io/github/stars/ggml-org/llama.cpp?style=social&color=white)](https://github.com/ggml-org/llama.cpp/stargazers)  
+  **Portability-First LLM Inference in Pure C/C++** (MIT) — The universal reference implementation for quantized edge and CPU serving using the GGUF file format. Features cutting-edge 2-bit through 8-bit quantization (K-quants, IQ-quants), zero-dependency C/C++ runtime, and custom acceleration backends for Apple Silicon Metal, Vulkan, SYCL, and CUDA. **Best for**: Resource-constrained environments, CPU-only servers, mobile devices, and embedded edge systems.
 
-  **Open Machine Learning Compiler Framework** (Apache-2.0) — **the most comprehensive open-source DL compiler** . **13,500+ GitHub stars** and **1,020+ contributors** . **Python-first development** enables quick customization; **universal deployment** brings models into minimum deployable modules . **Cross-level design** with **TensorIR** for tensor-level representation and **Relax** for graph-level representation—jointly optimizing computational graphs, tensor programs, and libraries . **Targets CPUs, GPUs, and specialized accelerators**—Metal, Vulkan, OpenCL, ROCm, CUDA, and more . **The foundation for building domain-specific vertical compilers** (e.g., for LLMs) . **Best for**: teams wanting **a fully open, hackable compiler stack** that targets diverse hardware without vendor lock-in.
+- **[vLLM](https://github.com/vllm-project/vllm)** [![GitHub stars](https://img.shields.io/github/stars/vllm-project/vllm?style=social&color=white)](https://github.com/vllm-project/vllm/stargazers)  
+  **High-Throughput and Memory-Efficient LLM Serving Engine** (Apache-2.0) — The industry production standard for enterprise LLM serving. Pioneered **PagedAttention** for virtual memory-style zero-waste KV cache management, continuous iteration-level request batching, speculative decoding, and chunked prefill. Provides full OpenAI API compatibility, multi-GPU tensor parallelism, and distributed pipeline parallelism. **Best for**: High-throughput enterprise production LLM serving on NVIDIA and AMD GPUs.
 
+- **[SGLang](https://github.com/sgl-project/sglang)** [![GitHub stars](https://img.shields.io/github/stars/sgl-project/sglang?style=social&color=white)](https://github.com/sgl-project/sglang/stargazers)  
+  **Fast Serving Engine for Large Language and Multimodal Models** (Apache-2.0) — The agentic and complex-prompting workload specialist. Features **RadixAttention** for automatic KV cache reuse across multi-turn interactions, structured output decoding (JSON schema/regex matching), and co-designed execution runtime. Deployed in production on over 400,000 GPUs across xAI, Cursor, LinkedIn, and hyperscale clouds. **Best for**: Complex agent workflows, multi-turn chat, chain-of-thought reasoning, and prefix-heavy workloads.
 
+- **[MLC-LLM](https://github.com/mlc-ai/mlc-llm)** [![GitHub stars](https://img.shields.io/github/stars/mlc-ai/mlc-llm?style=social&color=white)](https://github.com/mlc-ai/mlc-llm/stargazers)  
+  **Universal Machine Learning Compilation for LLMs** (Apache-2.0) — Built on Apache TVM Unity, MLC-LLM compiles language models directly to native executables across iOS, Android, WebGPU (in-browser client-side inference), Apple Metal, AMD ROCm, and NVIDIA GPUs without heavy runtime dependencies. **Best for**: Native cross-platform client-side deployment and web browser AI applications.
 
-- **ONNX Runtime**
+- **[ONNX Runtime](https://github.com/microsoft/onnxruntime)** [![GitHub stars](https://img.shields.io/github/stars/microsoft/onnxruntime?style=social&color=white)](https://github.com/microsoft/onnxruntime/stargazers)  
+  **Cross-Platform, High-Performance Scoring Engine** (MIT) — The world's most widely deployed cross-framework inference engine. Supports Open Neural Network Exchange (ONNX) models with pluggable Execution Providers (DirectML, OpenVINO, TensorRT, CoreML, QNN, KleidiAI). Features automatic Execution Provider selection, aggressive graph fusion, and 8-bit MatMulNBits quantization. **Best for**: Cross-platform portability across diverse hardware architectures with zero model rewriting.
 
-  **Cross-platform, high-performance scoring engine for Open Neural Network Exchange (ONNX) models** (MIT) — **the most widely deployed open-source inference runtime**. **Supports CPU, GPU, and specialized execution providers** including **OpenVINO, QNN (Qualcomm), DirectML, TensorRT, and CoreML**. **ONNX Runtime v1.22** introduced **Auto EP Selection** (automatic execution provider selection) and a **Compile API** for explicit model compilation . **KleidiAI integration** enhances Arm performance; **MatMulNBits** enables 8-bit quantized matrix multiplication . **The portability choice**—one model format runs across platforms and hardware. **Best for**: teams wanting **broad hardware support without rewriting models** per platform.
+- **[Apache TVM](https://github.com/apache/tvm)** [![GitHub stars](https://img.shields.io/github/stars/apache/tvm?style=social&color=white)](https://github.com/apache/tvm/stargazers)  
+  **End-to-End Open Deep Learning Compiler Framework** (Apache-2.0) — The most comprehensive open compiler stack for machine learning. Jointly optimizes computational graphs and operator kernels using **TensorIR** for tensor-level representation and **Relax** for graph-level transformations. Compiles models into minimal deployable modules targeting CPUs, GPUs, DSPs, and custom accelerators. **Best for**: Teams requiring a fully hackable, hardware-agnostic compiler stack free from vendor lock-in.
 
+- **[NVIDIA TensorRT](https://github.com/NVIDIA/TensorRT)** [![GitHub stars](https://img.shields.io/github/stars/NVIDIA/TensorRT?style=social&color=white)](https://github.com/NVIDIA/TensorRT/stargazers)  
+  **High-Performance Deep Learning Inference SDK** (Apache-2.0 open-source components) — The open-source parsers, plugins, and samples powering NVIDIA's hardware-optimized inference runtime. Fuses layers, optimizes memory layouts, and selects layer-specific optimal GPU kernels for NVIDIA Ampere, Hopper, and Blackwell architectures. **Best for**: Maximum throughput and sub-millisecond latency on NVIDIA GPUs.
 
+- **[Triton Inference Server](https://github.com/triton-inference-server/server)** [![GitHub stars](https://img.shields.io/github/stars/triton-inference-server/server?style=social&color=white)](https://github.com/triton-inference-server/server/stargazers)  
+  **Multi-Framework Production Inference Serving Platform** (BSD-3-Clause) — Enterprise serving layer supporting HTTP/REST and gRPC endpoints, dynamic batching, concurrent model execution, model ensembling, and backends for TensorRT, ONNX Runtime, PyTorch, OpenVINO, vLLM, and Python. Can be deployed as a cloud container or embedded as a C++ shared library. **Best for**: Scalable microservices architectures serving diverse heterogeneous deep learning models concurrently.
 
-- **Intel OpenVINO**
+- **[Intel OpenVINO](https://github.com/openvinotoolkit/openvino)** [![GitHub stars](https://img.shields.io/github/stars/openvinotoolkit/openvino?style=social&color=white)](https://github.com/openvinotoolkit/openvino/stargazers)  
+  **Open Visual Inference & Neural Network Optimization Toolkit** (Apache-2.0) — High-performance inference engine purpose-built for Intel hardware (Xeon CPUs, Intel Core Ultra NPUs, Arc GPUs). Features AVX-512/AMX acceleration, post-training quantization, and native GenAI LLM pipelines without CUDA dependencies. **Best for**: Maximizing throughput and energy efficiency across Intel CPUs, integrated/discrete GPUs, and edge NPUs.
 
-  **Open Visual Inference and Neural Network Optimization toolkit** (Apache-2.0) — **the Intel hardware choice**. **Optimizes inference across Intel CPUs, integrated GPUs, and VPUs** (Neural Compute Stick). **OpenVINO 2026** removed the deprecated `openvino.runtime` namespace, requires **AVX2 as minimum CPU requirement**, and **discontinued the Model Optimizer** in favor of new conversion methods . **GenAI support** covers LLMs and diffusion models with reduced runtime footprint . **Best for**: teams deploying on **Intel hardware** who want **vendor-optimized inference without CUDA dependency**.
+- **[Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference)** [![GitHub stars](https://img.shields.io/github/stars/huggingface/text-generation-inference?style=social&color=white)](https://github.com/huggingface/text-generation-inference/stargazers)  
+  **Hugging Face's Production LLM Serving Toolkit** (Apache-2.0) — Enterprise LLM deployment container featuring Tensor Parallelism, FlashAttention-2/v3, continuous batching, watermarking, and Prometheus metrics. *(Note: Maintenance mode since late 2025; recommended for existing Hugging Face ecosystems)*. **Best for**: Turnkey containerized deployment within Hugging Face enterprise pipelines.
 
+- **[BentoML](https://github.com/bentoml/BentoML)** [![GitHub stars](https://img.shields.io/github/stars/bentoml/BentoML?style=social&color=white)](https://github.com/bentoml/BentoML/stargazers)  
+  **Unified Model Serving and Production Packaging Framework** (Apache-2.0) — Standardizes model containerization into OCI-compliant "Bentos" with built-in adaptive batching, multi-model pipelines, Python-native service definition, and integration with vLLM, Triton, and OpenLLM. **Best for**: AI application developers building multi-stage ML pipelines and composite services.
 
+- **[ClearML](https://github.com/clearml/clearml)** [![GitHub stars](https://img.shields.io/github/stars/clearml/clearml?style=social&color=white)](https://github.com/clearml/clearml/stargazers)  
+  **Open-Source MLOps Suite with Triton-Backed Model Serving** (Apache-2.0) — End-to-end platform providing model versioning, orchestration pipelines, and scalable serving backed by NVIDIA Triton with fractional GPU resource allocation and out-of-the-box data drift monitoring. **Best for**: Teams seeking a unified platform combining experiment tracking, pipeline orchestration, and production serving.
 
-- **NVIDIA TensorRT (Open-Source Components)**
+- **[KServe](https://github.com/kserve/kserve)** [![GitHub stars](https://img.shields.io/github/stars/kserve/kserve?style=social&color=white)](https://github.com/kserve/kserve/stargazers)  
+  **Cloud-Native Model Serving on Kubernetes** (Apache-2.0) — Standardized serverless model inference platform on Kubernetes (built on Knative and Istio) providing scale-to-zero, Canary rollouts, explainability (Alibi), payload logging, and multi-model serving runtimes (vLLM, Triton, MLServer). **Best for**: Enterprise Kubernetes platform teams deploying declarative AI inference infrastructure at scale.
 
-  **High-performance deep learning inference on NVIDIA GPUs** (Apache-2.0 for the open components) — **the open-source parsers, plugins, and samples** that accompany the proprietary TensorRT core . **The TensorRT ecosystem** includes **trtexec** for building and benchmarking engines, ONNX parsing, and runtime APIs for C++ and Python . **Best for**: teams already committed to NVIDIA GPUs who want **maximum inference performance** and can accept the proprietary core.
+- **[ExecuTorch](https://github.com/pytorch/executorch)** [![GitHub stars](https://img.shields.io/github/stars/pytorch/executorch?style=social&color=white)](https://github.com/pytorch/executorch/stargazers)  
+  **Meta's On-Device PyTorch Inference Runtime** (BSD-3-Clause) — Compact runtime (<50 KB minimal binary) for executing PyTorch models on edge devices, mobile platforms (iOS, Android), and wearables with hardware backends for Apple MPS/ANE, Qualcomm QNN, Arm Ethos/Vulkan, and XNNPACK. **Best for**: Production mobile and embedded edge deployment natively from PyTorch 2.x without format conversions.
 
+- **[Seldon Core](https://github.com/SeldonIO/seldon-core)** [![GitHub stars](https://img.shields.io/github/stars/SeldonIO/seldon-core?style=social&color=white)](https://github.com/SeldonIO/seldon-core/stargazers)  
+  **Production Machine Learning Infrastructure for Kubernetes** (Apache-2.0) — Converts ML models into production REST/gRPC microservices with advanced routing graphs, multi-armed bandits, canary deployments, outlier detection, and comprehensive OpenTelemetry metrics. **Best for**: Complex directed acyclic graph (DAG) inference workflows and enterprise governance on Kubernetes.
 
+- **[TorchServe](https://github.com/pytorch/serve)** [![GitHub stars](https://img.shields.io/github/stars/pytorch/serve?style=social&color=white)](https://github.com/pytorch/serve/stargazers)  
+  **PyTorch-Native Production Serving Engine** (Apache-2.0) — Co-developed by AWS and the PyTorch team, TorchServe offers multi-model management, dynamic batching, model versioning, TorchScript support, and metrics endpoints for production PyTorch deployment. **Best for**: Native PyTorch deployments requiring turnkey REST/gRPC serving with enterprise AWS SageMaker parity.
 
-- **Triton Inference Server**
+- **[Google LiteRT](https://github.com/google-ai-edge/LiteRT)** [![GitHub stars](https://img.shields.io/github/stars/google-ai-edge/LiteRT?style=social&color=white)](https://github.com/google-ai-edge/LiteRT/stargazers)  
+  **Google AI Edge Runtime (formerly TensorFlow Lite)** (Apache-2.0) — Google's high-performance on-device runtime for mobile, web, and IoT devices with hardware delegation across Android NNAPI, iOS GPU/Core ML, and edge NPUs. Powers on-device GenAI in Google Chrome, Android system services, and Pixel devices. **Best for**: Lightweight on-device vision, speech, and generative AI on mobile and edge devices.
 
-  **Cloud inferencing solution optimized for both CPUs and GPUs** (BSD-3-Clause) — **the serving layer** . **Provides an inference service via HTTP or gRPC endpoint**—remote clients request inference for any model managed by the server . **Edge deployment available as a shared library**—full server functionality embedded directly in an application . **Supports TensorRT, PyTorch, ONNX, vLLM, and Python backends** . **Best for**: teams needing **a production serving layer** that handles model management, batching, and multi-framework backends.
+- **[AIKit (Kaito)](https://github.com/kaito-project/aikit)** [![GitHub stars](https://img.shields.io/github/stars/kaito-project/aikit?style=social&color=white)](https://github.com/kaito-project/aikit/stargazers)  
+  **Containerized LLM Deployment and Fine-Tuning Kit** (Apache-2.0) — Packages open-source foundation models into standard OCI artifacts with signed supply-chain security (SBOMs), OpenAI-compatible API endpoints, and automated Kubernetes scheduling with AMD ROCm and NVIDIA CUDA support. **Best for**: Secure, container-native LLM deployment on Kubernetes clusters with strict enterprise supply-chain requirements.
 
-
-
-- **TensorFlow Lite (LiteRT)**
-
-  **TensorFlow's lightweight solution for mobile and embedded devices** (Apache-2.0) — **the mobile deployment standard**. **Converts TensorFlow models to a compact FlatBuffer format** optimized for on-device inference. **Supports Android, iOS, and embedded Linux** with hardware acceleration via **GPU delegates, NNAPI, and Core ML delegates**. **Best for**: teams deploying **TensorFlow models to mobile and edge devices**.
-
-
-
-- **TorchScript**
-
-  **A way to create serializable and optimizable models from PyTorch code** (BSD-3-Clause) — **the PyTorch-native export path**. **Traces or scripts PyTorch models** into an intermediate representation that can run independently of Python. **The foundation for PyTorch deployment**—TorchScript models can be served via TorchServe, exported to ONNX, or compiled by TensorRT. **Best for**: teams committed to PyTorch who want **a standard export path** before choosing a runtime.
-
-
-
-- **ExecuTorch**
-
-  **Meta's on-device inference runtime for PyTorch** (BSD-3-Clause) — **the PyTorch mobile/edge choice** . **1.0 GA October 2025** with **50KB footprint** and **12+ hardware backends** . **Billions of users** across Meta's apps . **Best for**: teams deploying **PyTorch models to mobile and embedded devices** without leaving the PyTorch ecosystem.
-
-
-
-### Additional Strong Open-Source Options
-
-
-
-- **vLLM** — **High-throughput LLM inference engine** (Apache-2.0) — **the production default for LLM serving**. **PagedAttention** for KV cache management, **continuous batching**, and **OpenAI-compatible API**. **Best for**: serving LLMs at scale on GPU.
-
-- **SGLang** — **Fast inference for LLMs and multimodal models** (Apache-2.0) — **the agentic workload specialist**. **RadixAttention** for prefix caching, **400,000+ GPUs in production** across xAI, LinkedIn, Cursor, Oracle, GCP, Azure, and AWS . **Best for**: multi-turn agent workloads and prefix-heavy serving.
-
-- **llama.cpp** — **CPU, GPU, and Metal inference** (MIT) — **the reference for quantized CPU serving**. **Widest model support** and **full control over quantization and threading** . **Best for**: edge, embedded, and CPU-only deployments.
-
-- **Ollama** — **Dev-laptop one-command install** (MIT) — **wraps llama.cpp with model-management UX**. **15-30% slower than llama.cpp** due to Go + CGo + HTTP serialization, but **the fastest path to a running model** . **Best for**: development and single-user inference.
-
-- **AIKit (Kaito)** — **Fine-tune, build, and deploy open-source LLMs easily** (open-source) — **OCI packaging** for models, **OpenAI-compatible API**, **multi-modal support**, **Kubernetes-ready** with NVIDIA CUDA and AMD ROCm . **No GPU needed for local testing** (`docker run -d -p 8080:8080 ghcr.io/kaito-project/aikit/llama3.1:8b`) . **Best for**: teams wanting **containerized model deployment with supply-chain security** (SBOMs, signed images).
-
-- **LiteRT-LM (Google AI Edge)** — **Production-ready orchestration layer to run LLMs with LiteRT** (Apache-2.0) — **cross-platform support** for Android, iOS, Web, Desktop, and IoT (Raspberry Pi) . **Hardware acceleration** via GPU and NPU, **multi-modality** (vision and audio), **tool use** for agentic workflows, and **broad model support** (Gemma, Llama, Phi-4, Qwen) . **Powers on-device GenAI in Chrome, Chromebook Plus, and Pixel Watch** . **Best for**: teams deploying **LLMs to edge devices** with Google's production-validated stack.
-
-- **Seldon Core** — **Kubernetes-native model serving** (Apache-2.0) — **multi-step inference pipelines**, **drift detection**, **MLServer** for multi-model per GPU, and **Prometheus/ELK/Jaeger integrations** . **Best for**: teams running **complex inference graphs on Kubernetes** with observability built in.
-
-- **ClearML** — **ML/DL development and production suite** (Apache-2.0) — **Model-Serving** module with **GPU serving backed by NVIDIA Triton**, **out-of-the-box model monitoring**, and **fractional GPUs** for container-level memory limits . **Best for**: teams wanting **experiment tracking, orchestration, and serving in one platform**.
-
-- Community **n8n** workflows for model compilation pipeline automation and inference alerting.
-
-
-
-**Frameworks for building custom systems**: Combine **Apache TVM** for cross-hardware compilation with **ONNX Runtime** for portability, **TensorRT** for NVIDIA GPU performance, **OpenVINO** for Intel optimization, **vLLM** or **SGLang** for LLM serving, and **Triton Inference Server** for production serving—creating a comprehensive deployment stack that spans development to production.
+**Architecture Integration Pattern**: In production stacks, developers frequently combine **Apache TVM** or **TensorRT** for hardware graph compilation, **vLLM** or **SGLang** for generative model inference, and **Triton Inference Server** or **KServe** for multi-model Kubernetes orchestration and routing.
 
 
 
