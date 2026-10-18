@@ -30,15 +30,17 @@ Contributions welcome! Open a PR to add/update entries. Keep descriptions factua
 
 ## Table of Contents
 
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
 - [SaaS/Hosted Platforms](#saas-hosted-platforms)
-
 - [Open-Source GitHub Projects](#open-source-github-projects)
-
 - [How to Contribute](#how-to-contribute)
-
 - [Disclaimer](#disclaimer)
 
+## Sector Overview & Market Dynamics
 
+The global deep learning inference and AI model deployment market is estimated at **$95B–$120B in 2024–2026** and projected to reach **$250B–$490B+ by the early 2030s** (~17%–19% CAGR), with production inference representing **80%–90% of total lifetime enterprise AI computing expenditure**. 
+
+The sector exhibits a bifurcated competitive structure: the **hardware accelerator and silicon tier is highly concentrated and monopolistic** (dominated by NVIDIA with 55%–75% market share alongside hyperscaler custom ASICs), whereas the **software compilation, orchestration, and inference runtime tier is moderately-to-highly fragmented** across hardware-agnostic compilers, open-source serving engines, and specialized serverless platforms competing on latency, throughput, and cost-per-token optimization.
 
 ## SaaS/Hosted Platforms
 
