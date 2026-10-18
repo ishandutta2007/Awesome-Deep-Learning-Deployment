@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Deep Learning Deployment Banner" width="100%" />
+</p>
+
 # Awesome Deep Learning Deployment & Model Serving [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ishandutta2007/Awesome-Deep-Learning-Deployment/pulls) [![GitHub Stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Deep-Learning-Deployment?style=social)](https://github.com/ishandutta2007/Awesome-Deep-Learning-Deployment/stargazers)
 
 > A comprehensive, production-tested directory of the best tools, frameworks, and hosted platforms for **Deep Learning Deployment**, **LLM Inference Optimization**, **Model Graph Compilation**, and **Production Model Serving** across Cloud, Kubernetes, and Edge hardware.

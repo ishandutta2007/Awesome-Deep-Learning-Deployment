@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#070a13"/>
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+
+    <linearGradient id="glowLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Filters for Glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.08); }
+    }
+    @keyframes flowLine {
+      0% { stroke-dashoffset: 600; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes floatPillSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes floatPillFast {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(8px); }
+    }
+    @keyframes wavePulse {
+      0% { r: 3px; opacity: 0.8; }
+      100% { r: 18px; opacity: 0; }
+    }
+
+    .bg-grid { opacity: 0.12; stroke: #38bdf8; stroke-width: 0.75; }
+    .pulse-blob { transform-origin: center; animation: pulseGlow 6s ease-in-out infinite; }
+    .pulse-blob-alt { transform-origin: center; animation: pulseGlow 8s ease-in-out infinite 2s; }
+    .anim-line { stroke-dasharray: 120 180; animation: flowLine 12s linear infinite; }
+    .float-1 { animation: floatPillSlow 5s ease-in-out infinite; }
+    .float-2 { animation: floatPillFast 6s ease-in-out infinite 1s; }
+    .float-3 { animation: floatPillSlow 7s ease-in-out infinite 2s; }
+    .pulse-ring { animation: wavePulse 3s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+    .pulse-ring-delayed { animation: wavePulse 3s cubic-bezier(0, 0.2, 0.8, 1) infinite 1.5s; }
+    
+    .hero-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+    .hero-sub {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .pill-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="360" fill="url(#bgGradient)"/>
+
+  <!-- Subtle Geometric Grid -->
+  <g class="bg-grid">
+    <line x1="0" y1="60" x2="1200" y2="60"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="150" y1="0" x2="150" y2="360"/>
+    <line x1="300" y1="0" x2="300" y2="360"/>
+    <line x1="450" y1="0" x2="450" y2="360"/>
+    <line x1="600" y1="0" x2="600" y2="360"/>
+    <line x1="750" y1="0" x2="750" y2="360"/>
+    <line x1="900" y1="0" x2="900" y2="360"/>
+    <line x1="1050" y1="0" x2="1050" y2="360"/>
+  </g>
+
+  <!-- Animated Ambient Glow Blobs in Background -->
+  <g opacity="0.6">
+    <circle class="pulse-blob" cx="220" cy="90" r="140" fill="#38bdf8" filter="url(#glow)"/>
+    <circle class="pulse-blob-alt" cx="980" cy="270" r="160" fill="#818cf8" filter="url(#glow)"/>
+    <circle class="pulse-blob" cx="600" cy="180" r="120" fill="#c084fc" filter="url(#glow)"/>
+  </g>
+
+  <!-- Background Dynamic Network Flow Lines -->
+  <g opacity="0.45" stroke="url(#glowLine)" stroke-width="2" fill="none">
+    <path class="anim-line" d="M -50,180 Q 250,70 550,180 T 1150,160 T 1250,220" />
+    <path class="anim-line" d="M -50,120 Q 350,260 700,120 T 1250,140" style="animation-duration: 9s; stroke-width: 1.5;" />
+    <path class="anim-line" d="M -50,260 Q 400,90 850,260 T 1250,280" style="animation-duration: 15s; stroke-width: 1.5;" />
+  </g>
+
+  <!-- Animated Neural / Node Pulse Rings in Background -->
+  <g transform="translate(180, 260)">
+    <circle cx="0" cy="0" r="3" fill="#38bdf8" />
+    <circle class="pulse-ring" cx="0" cy="0" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+  </g>
+  <g transform="translate(1020, 100)">
+    <circle cx="0" cy="0" r="3" fill="#818cf8" />
+    <circle class="pulse-ring-delayed" cx="0" cy="0" fill="none" stroke="#818cf8" stroke-width="1.5" />
+  </g>
+  <g transform="translate(930, 290)">
+    <circle cx="0" cy="0" r="3" fill="#c084fc" />
+    <circle class="pulse-ring" cx="0" cy="0" fill="none" stroke="#c084fc" stroke-width="1.5" />
+  </g>
+
+  <!-- Background Ambient Architecture Pills (Behind Foreground Content) -->
+  <g opacity="0.45">
+    <g class="float-1" transform="translate(70, 75)">
+      <rect width="80" height="26" rx="13" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text class="pill-text" x="40" y="17" fill="#38bdf8" text-anchor="middle">vLLM</text>
+    </g>
+    <g class="float-2" transform="translate(1040, 65)">
+      <rect width="95" height="26" rx="13" fill="#1e293b" stroke="#818cf8" stroke-width="1"/>
+      <text class="pill-text" x="47" y="17" fill="#818cf8" text-anchor="middle">TensorRT</text>
+    </g>
+    <g class="float-3" transform="translate(95, 275)">
+      <rect width="90" height="26" rx="13" fill="#1e293b" stroke="#c084fc" stroke-width="1"/>
+      <text class="pill-text" x="45" y="17" fill="#c084fc" text-anchor="middle">Triton</text>
+    </g>
+    <g class="float-1" transform="translate(1015, 265)">
+      <rect width="90" height="26" rx="13" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <text class="pill-text" x="45" y="17" fill="#34d399" text-anchor="middle">SGLang</text>
+    </g>
+    <g class="float-2" transform="translate(560, 45)">
+      <rect width="85" height="26" rx="13" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text class="pill-text" x="42" y="17" fill="#38bdf8" text-anchor="middle">ONNX</text>
+    </g>
+  </g>
+
+  <!-- FOREGROUND: Dark Semi-Transparent Protective Card Layer To Ensure 100% Readability -->
+  <rect x="180" y="65" width="840" height="230" rx="20" fill="#0b0f19" fill-opacity="0.78" stroke="#334155" stroke-width="1.2" filter="url(#softGlow)"/>
+
+  <!-- FOREGROUND TEXT ELEMENTS (Guaranteed Sharp and Never Obscured) -->
+  <g id="foreground-content">
+    <!-- Top Pill Badge -->
+    <g transform="translate(600, 102)">
+      <rect x="-140" y="-14" width="280" height="28" rx="14" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2"/>
+      <circle cx="-116" cy="0" r="4" fill="#38bdf8">
+        <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text class="hero-sub" x="6" y="4.5" fill="#a5b4fc" font-size="12" font-weight="700" text-anchor="middle">
+        PRODUCTION AI INFERENCE ECOSYSTEM
+      </text>
+    </g>
+
+    <!-- Main Title -->
+    <text class="hero-title" x="600" y="165" fill="url(#textGrad)" font-size="38" text-anchor="middle" filter="url(#softGlow)">
+      Awesome Deep Learning Deployment
+    </text>
+
+    <!-- Subtitle -->
+    <text class="hero-sub" x="600" y="206" fill="#94a3b8" font-size="16" text-anchor="middle">
+      Model Compilation  •  Runtime Optimization  •  Production Serving
+    </text>
+
+    <!-- Bottom Feature Tag Badges -->
+    <g transform="translate(600, 252)">
+      <!-- Tag 1 -->
+      <g transform="translate(-185, 0)">
+        <rect x="-65" y="-12" width="130" height="24" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
+        <text class="pill-text" x="0" y="4" fill="#7dd3fc" text-anchor="middle">⚡ Sub-ms Latency</text>
+      </g>
+      <!-- Tag 2 -->
+      <g transform="translate(0, 0)">
+        <rect x="-75" y="-12" width="150" height="24" rx="6" fill="#0f172a" stroke="#818cf8" stroke-width="0.8"/>
+        <text class="pill-text" x="0" y="4" fill="#c7d2fe" text-anchor="middle">🚀 Max Throughput</text>
+      </g>
+      <!-- Tag 3 -->
+      <g transform="translate(185, 0)">
+        <rect x="-65" y="-12" width="130" height="24" rx="6" fill="#0f172a" stroke="#c084fc" stroke-width="0.8"/>
+        <text class="pill-text" x="0" y="4" fill="#e9d5ff" text-anchor="middle">🌐 Cloud &amp; Edge</text>
+      </g>
+    </g>
+  </g>
+</svg>
